@@ -1,10 +1,26 @@
 # Terraform EKS
 
-Infrastructure as Code for provisioning an Amazon EKS cluster on AWS with Terraform.
+A Terraform learning project focused on provisioning Amazon EKS infrastructure on AWS.
 
-## Overview
+## Scope
 
-The project uses Terraform to define the infrastructure required for an Amazon EKS environment, including networking, IAM, security groups, the Kubernetes control plane, and worker node groups.
+The repository is dedicated to practicing the Infrastructure as Code workflow for Kubernetes on AWS.
+
+```text
+Terraform configuration
+        |
+        v
+terraform plan
+        |
+        v
+terraform apply
+        |
+        v
+AWS / EKS
+        |
+        v
+kubectl
+```
 
 ## Technologies
 
@@ -15,30 +31,26 @@ The project uses Terraform to define the infrastructure required for an Amazon E
 - kubectl
 - AWS CLI
 
-## Main components
-
-- VPC and networking
-- IAM roles and policies
-- EKS cluster
-- Worker node groups
-- Security groups
-- Terraform variables and outputs
-
-## Deployment
+## Workflow
 
 ```bash
 aws configure
 terraform init
+terraform validate
 terraform plan
 terraform apply
 ```
 
-After deployment, the Terraform outputs can be used to configure access to the cluster with `kubectl`.
+After provisioning, Kubernetes access can be configured with the AWS CLI and verified with:
 
-To remove the infrastructure:
+```bash
+kubectl get nodes
+```
+
+Remove the provisioned resources with:
 
 ```bash
 terraform destroy
 ```
 
-This is a personal AWS/Kubernetes lab focused on learning EKS provisioning with Infrastructure as Code.
+This is a personal Cloud/DevOps lab for practicing EKS provisioning and Infrastructure as Code.
